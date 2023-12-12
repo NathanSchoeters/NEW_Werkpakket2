@@ -1,0 +1,49 @@
+//Colors
+$color-primary: #127bde;
+$color-secondary: #eb7a23;
+$color-black: #1f1e1e;
+$color-white: #eef5fc;
+$color-dark-blue: #0c579c;
+$color-grey: #d2d3d3;
+
+
+//Fonts
+$font-Caveat: 'Caveat', sans-serif;
+$font-poppins: 'Poppins', sans-serif;
+$font-Young-Serif: 'Young Serif', sans-serif;
+
+@mixin flexLayout($justify-Content:center){
+    display: flex;
+    justify-content: $justify-Content;
+    align-items: center;
+}
+
+@mixin titleLayout($font-size:36px,$title-color: $color-white){
+    color: $title-color;
+    font-weight: bold;
+    font-family: $font-poppins;
+    font-size: $font-size;
+}
+
+@mixin textLayout($text-color: $color-white){
+    color: $text-color;
+    font-family: $font-Young-Serif;
+    font-size: 18px;
+}
+
+@mixin buttonLayout($margin: 3px){
+    height:40px;
+    width: 80px;
+    background-color: $color-primary;
+    color: $color-white;
+    border: 3px solid $color-primary;
+    border-radius: 5px;
+    margin: $margin;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover{
+        background-color: $color-white;
+        color: $color-primary;
+        transition: 0.5s;
+    }
+}

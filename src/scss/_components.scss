@@ -1,0 +1,81 @@
+@use "base" as *;
+
+.navbar-button{
+    @include buttonLayout();
+}
+
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 10px solid $color-primary;
+    height: 500px;
+    width: 350px;
+    margin: 5px;
+    cursor: pointer;
+    &-top{
+        height: 80%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        &-image{
+            height: 100%;
+            max-width: 100%;
+        }
+        background-color: $color-dark-blue;
+        padding-bottom: 5px;
+    }
+    &-bottom{
+        width: 100%;
+        height: 20%;
+        text-align: center;
+        background-color: $color-primary;
+        @include flexLayout;
+        flex-direction: column;
+        &-title{
+            @include flexLayout(space-between);
+            flex-direction: row;
+            width: 100%;
+            &-header{
+                @include titleLayout(28px);
+            }
+            &-price{
+                color: $color-white;
+                font-family: $font-poppins;
+                font-size: 20px;
+            }
+        }
+        &-info{
+            @include flexLayout(space-between);
+            flex-direction: row;
+            width: 100%;
+            &-text{
+                @include textLayout;
+            }
+            &-button{
+                @include buttonLayout;
+                background-color: $color-white;
+                color: $color-primary;
+                width: 50px;
+            }
+        }  
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .card{
+        &-bottom{
+            &-title{
+                &-header{
+                    font-size: 20px;
+                }
+            }
+            &-info{
+                &-text{
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
