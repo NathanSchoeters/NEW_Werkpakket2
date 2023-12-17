@@ -5,12 +5,12 @@ import './scss/main.scss'
 
 import { createApp } from 'vue';
 
-import { createPinia } from 'pinia';
+//import { createPinia } from 'pinia';
 
 import App from './App.vue';
 
-const pinia = createPinia();
+//const pinia = createPinia();
 
-App.use(pinia);
+//App.use(pinia);
 
 createApp(App).mount('#app');
