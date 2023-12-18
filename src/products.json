@@ -1,204 +1,202 @@
-{
-    "products": [
-      {
-        "id": 1,
-        "title": "Ahsoka sticker",
-        "description": "This sticker is 5x8 cm.",
-        "image": "Illustration1.png",
-        "price": 1.50,
-        "btw": 21,
-        "stock_quantity": 420,
-        "package": false
-      },
-      {
-        "id": 2,
-        "title": "Darksaber sticker",
-        "description": "This sticker is 1x5cm.",
-        "image": "Illustration2.png",
-        "price": 0.50,
-        "vat_rate": 21,
-        "stock_quantity": 75,
-        "package": false
-      },
-      {
-        "id": 3,
-        "title": "Lightsaber pack",
-        "description": "These stickers are 1x5 cm.",
-        "image": "sIllustration3.png",
-        "price": 2.50,
-        "vat_rate": 21,
-        "stock_quantity": 50,
-        "package": true
-      },
-      {
-        "id": 4,
-        "title": "Lightsaber sticker",
-        "description": "This sticker is 1x10 cm.",
-        "image": "Illustration4.png",
-        "price": 1.00,
-        "vat_rate": 21,
-        "stock_quantity": 43,
-        "package": false
-      },
-      {
-        "id": 5,
-        "title": "Stag Illustration",
-        "description": "This illustration is 10x18 cm.",
-        "image": "Illustration5.png",
-        "price": 3.50,
-        "vat_rate": 21,
-        "stock_quantity": 211,
-        "package": false
-      },
-      {
-        "id": 6,
-        "title": "Plant illustration",
-        "description": "This illustration is 5x5 cm.",
-        "image": "Illustration6.png",
-        "price": 2.00,
-        "vat_rate": 21,
-        "stock_quantity": 66,
-        "package": false
-      },
-      {
-        "id": 7,
-        "title": "Puppy Sticker",
-        "description": "This sticker is 5x8 cm.",
-        "image": "Illustration7.png",
-        "price": 3.50,
-        "vat_rate": 21,
-        "stock_quantity": 550,
-        "package": false
-      },
-      {
-        "id": 8,
-        "title": "Lemon Illustration",
-        "description": "This illustration is 3x5 cm.",
-        "image": "Illustration8.png",
-        "price":  1.50,
-        "vat_rate": 21,
-        "stock_quantity": 76,
-        "package": false
-      },
-      {
-        "id": 9,
-        "title": "Ahsoka sticker",
-        "description": "This sticker is 5x8 cm.",
-        "image": "Illustration1.png",
-        "price": 1.50,
-        "btw": 21,
-        "stock_quantity": 420,
-        "package": false
-      },
-      {
-        "id": 10,
-        "title": "Ahsoka sticker",
-        "description": "This sticker is 5x8 cm.",
-        "image": "Illustration1.png",
-        "price": 1.50,
-        "btw": 21,
-        "stock_quantity": 420,
-        "package": false
-      },
-      {
-        "id": 11,
-        "title": "Ahsoka sticker",
-        "description": "This sticker is 5x8 cm.",
-        "image": "Illustration1.png",
-        "price": 1.50,
-        "btw": 21,
-        "stock_quantity": 420,
-        "package": false
-      },
-      {
-        "id": 12,
-        "title": "Ahsoka sticker",
-        "description": "This sticker is 5x8 cm.",
-        "image": "Illustration1.png",
-        "price": 1.50,
-        "btw": 21,
-        "stock_quantity": 420,
-        "package": false
-      },
-      {
-        "id": 13,
-        "title": "Ahsoka sticker",
-        "description": "This sticker is 5x8 cm.",
-        "image": "Illustration1.png",
-        "price": 1.50,
-        "btw": 21,
-        "stock_quantity": 420,
-        "package": false
-      },
-      {
-        "id": 14,
-        "title": "Ahsoka sticker",
-        "description": "This sticker is 5x8 cm.",
-        "image": "Illustration1.png",
-        "price": 1.50,
-        "btw": 21,
-        "stock_quantity": 420,
-        "package": false
-      },
-      {
-        "id": 15,
-        "title": "Ahsoka sticker",
-        "description": "This sticker is 5x8 cm.",
-        "image": "Illustration1.png",
-        "price": 1.50,
-        "btw": 21,
-        "stock_quantity": 420,
-        "package": false
-      },
-      {
-        "id": 16,
-        "title": "Ahsoka sticker",
-        "description": "This sticker is 5x8 cm.",
-        "image": "Illustration1.png",
-        "price": 1.50,
-        "btw": 21,
-        "stock_quantity": 420,
-        "package": false
-      },
-      {
-        "id": 17,
-        "title": "Ahsoka sticker",
-        "description": "This sticker is 5x8 cm.",
-        "image": "Illustration1.png",
-        "price": 1.50,
-        "btw": 21,
-        "stock_quantity": 420,
-        "package": false
-      },
-      {
-        "id": 18,
-        "title": "Ahsoka sticker",
-        "description": "This sticker is 5x8 cm.",
-        "image": "Illustration1.png",
-        "price": 1.50,
-        "btw": 21,
-        "stock_quantity": 420,
-        "package": false
-      },
-      {
-        "id": 19,
-        "title": "Ahsoka sticker",
-        "description": "This sticker is 5x8 cm.",
-        "image": "Illustration1.png",
-        "price": 1.50,
-        "btw": 21,
-        "stock_quantity": 420,
-        "package": false
-      },
-      {
-        "id": 20,
-        "title": "Ahsoka sticker",
-        "description": "This sticker is 5x8 cm.",
-        "image": "Illustration1.png",
-        "price": 1.50,
-        "btw": 21,
-        "stock_quantity": 420,
-        "package": false
-      }
-    ]
+[
+  {
+    "id": 1,
+    "title": "Ahsoka sticker",
+    "description": "This sticker is 5x8 cm.",
+    "image": "Illustration1.png",
+    "price": 1.50,
+    "btw": 21,
+    "stock_quantity": 420,
+    "category": "single"
+  },
+  {
+    "id": 2,
+    "title": "Darksaber sticker",
+    "description": "This sticker is 1x5cm.",
+    "image": "Illustration2.png",
+    "price": 0.50,
+    "vat_rate": 21,
+    "stock_quantity": 75,
+    "category": "single"
+  },
+  {
+    "id": 3,
+    "title": "Lightsaber pack",
+    "description": "These stickers are 1x5 cm.",
+    "image": "Illustration1.png",
+    "price": 2.50,
+    "vat_rate": 21,
+    "stock_quantity": 50,
+    "category": "package"
+  },
+  {
+    "id": 4,
+    "title": "Lightsaber sticker",
+    "description": "This sticker is 1x10 cm.",
+    "image": "Illustration3.png",
+    "price": 1.00,
+    "vat_rate": 21,
+    "stock_quantity": 43,
+    "category": "single"
+  },
+  {
+    "id": 5,
+    "title": "Stag Illustration",
+    "description": "This illustration is 10x18 cm.",
+    "image": "Illustration4.png",
+    "price": 3.50,
+    "vat_rate": 21,
+    "stock_quantity": 211,
+    "category": "single"
+  },
+  {
+    "id": 6,
+    "title": "Plant illustration",
+    "description": "This illustration is 5x5 cm.",
+    "image": "Illustration5.png",
+    "price": 2.00,
+    "vat_rate": 21,
+    "stock_quantity": 66,
+    "category": "single"
+  },
+  {
+    "id": 7,
+    "title": "Puppy Sticker",
+    "description": "This sticker is 5x8 cm.",
+    "image": "Illustration6.png",
+    "price": 3.50,
+    "vat_rate": 21,
+    "stock_quantity": 550,
+    "category": "single"
+  },
+  {
+    "id": 8,
+    "title": "Lemon Illustration",
+    "description": "This illustration is 3x5 cm.",
+    "image": "Illustration7.png",
+    "price":  1.50,
+    "vat_rate": 21,
+    "stock_quantity": 76,
+    "category": "single"
+  },
+  {
+    "id": 9,
+    "title": "Ahsoka sticker",
+    "description": "This sticker is 5x8 cm.",
+    "image": "Illustration1.png",
+    "price": 1.50,
+    "btw": 21,
+    "stock_quantity": 420,
+    "category": "single"
+  },
+  {
+    "id": 10,
+    "title": "Ahsoka sticker",
+    "description": "This sticker is 5x8 cm.",
+    "image": "Illustration1.png",
+    "price": 1.50,
+    "btw": 21,
+    "stock_quantity": 420,
+    "category": "single"
+  },
+  {
+    "id": 11,
+    "title": "Ahsoka sticker",
+    "description": "This sticker is 5x8 cm.",
+    "image": "Illustration1.png",
+    "price": 1.50,
+    "btw": 21,
+    "stock_quantity": 420,
+    "category": "single"
+  },
+  {
+    "id": 12,
+    "title": "Ahsoka sticker",
+    "description": "This sticker is 5x8 cm.",
+    "image": "Illustration1.png",
+    "price": 1.50,
+    "btw": 21,
+    "stock_quantity": 420,
+    "category": "single"
+  },
+  {
+    "id": 13,
+    "title": "Ahsoka sticker",
+    "description": "This sticker is 5x8 cm.",
+    "image": "Illustration1.png",
+    "price": 1.50,
+    "btw": 21,
+    "stock_quantity": 420,
+    "category": "single"
+  },
+  {
+    "id": 14,
+    "title": "Ahsoka sticker",
+    "description": "This sticker is 5x8 cm.",
+    "image": "Illustration1.png",
+    "price": 1.50,
+    "btw": 21,
+    "stock_quantity": 420,
+    "category": "single"
+  },
+  {
+    "id": 15,
+    "title": "Ahsoka sticker",
+    "description": "This sticker is 5x8 cm.",
+    "image": "Illustration1.png",
+    "price": 1.50,
+    "btw": 21,
+    "stock_quantity": 420,
+    "category": "single"
+  },
+  {
+    "id": 16,
+    "title": "Mike sticker",
+    "description": "This sticker is 5x8 cm.",
+    "image": "Illustration1.png",
+    "price": 1.50,
+    "btw": 21,
+    "stock_quantity": 5000,
+    "category": "single"
+  },
+  {
+    "id": 17,
+    "title": "Ahsoka sticker",
+    "description": "This sticker is 5x8 cm.",
+    "image": "Illustration1.png",
+    "price": 1.50,
+    "btw": 21,
+    "stock_quantity": 420,
+    "package": false
+  },
+  {
+    "id": 18,
+    "title": "Ahsoka sticker",
+    "description": "This sticker is 5x8 cm.",
+    "image": "Illustration1.png",
+    "price": 1.50,
+    "btw": 21,
+    "stock_quantity": 420,
+    "category": "single"
+  },
+  {
+    "id": 19,
+    "title": "Ahsoka sticker",
+    "description": "This sticker is 5x8 cm.",
+    "image": "Illustration1.png",
+    "price": 1.50,
+    "btw": 21,
+    "stock_quantity": 420,
+    "category": "single"
+  },
+  {
+    "id": 20,
+    "title": "Ahsoka sticker",
+    "description": "This sticker is 5x8 cm.",
+    "image": "Illustration1.png",
+    "price": 1.50,
+    "btw": 21,
+    "stock_quantity": 420,
+    "category": "single"
   }
+]

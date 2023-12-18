@@ -1,13 +1,15 @@
 <script>
-props: {
-    product: Object,
-  },
+export default {
+    props: {
+        product: Object,
+    }
+}
 </script>
 <template>
 <a class="product-link" href="./product.html">
     <div class="card">
         <div class="card-top">
-            <img class="card-top-image" v-bind:src="./src/assets/{{product.image}}" alt="Illustration1">
+            <img class="card-top-image" :src="'src/assets/'+ product.image" :alt="product.title">
         </div>
         <div class="card-bottom">
             <div class="card-bottom-title">

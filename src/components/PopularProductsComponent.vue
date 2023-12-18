@@ -1,24 +1,22 @@
 <script>
-import ProductCard from '@/components/ProductCardComponent.vue';
-import Products from '@/products.json';
+import productCard from '@/components/ProductCardComponent.vue';
+import { useProductsStore } from '@/stores/productsStore.js';
+//import Products from '@/products.json';
 
 export default {
     data() {
-        return{
-            Products: []
-        }
+      return{
+          productList: useProductsStore(),
+      };
   },
   components: {
-    ProductCard,
+    productCard,
   },
   computed: {
-    topThreeProducts() {
-        const TopProducts = Products.slice().sort((a, b) => b.stock_quantity - a.stock_quantity);
-        return TopProducts.slice(0, 3);
-        console.log(TopProducts);
-    },
+    topThreeProducts (){
+      return this.productList.topThreeProducts;
+    }
   },
-  
 }
 </script>
 <template>
@@ -26,7 +24,7 @@ export default {
         <h1 class="gallery-title">Best Sold</h1>
         <div class="cards-wrapper">
             <div v-for="(product, id) in topThreeProducts" :key="id">
-              <ProductCard :product="product" />
+              <productCard :product="product" />
             </div>
         </div>
     </section>
