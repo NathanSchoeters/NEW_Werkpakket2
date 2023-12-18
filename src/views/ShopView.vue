@@ -9,16 +9,11 @@ export default {
       selectedFilter: "both",
       currentPage: 1,
       itemsPerPage: 6, // Set the number of items per page
+      filteredProducts: [],
+      searchData: "",
     };
   },
   computed: {
-    filteredProducts() {
-      if (this.selectedFilter === "both") {
-        return this.products.productList;
-      } else {
-        return this.products.productList.filter((product) => product.category === this.selectedFilter);
-      }
-    },
     totalPages() {
       return Math.ceil(this.filteredProducts.length / this.itemsPerPage);
     },
@@ -32,6 +27,26 @@ export default {
     filterSelect(filter) {
       this.selectedFilter = filter;
       this.currentPage = 1; // Reset to the first page when the filter changes
+      this.filterProducts();
+    },
+    filterProducts() {
+      let filteredList = this.products.productList;
+
+      if (this.selectedFilter === "both") {
+        // Do nothing, already considering all products
+      } else {
+        filteredList = filteredList.filter((product) => product.category === this.selectedFilter);
+      }
+
+      // Search bar
+      if (this.searchData.trim() !== "") {
+        const data = this.searchData.toLowerCase();
+        filteredList = filteredList.filter((product) =>
+          product.title.toLowerCase().includes(data)
+        );
+      }
+
+      this.filteredProducts = filteredList;
     },
     prevPage() {
       if (this.currentPage > 1) {
@@ -47,6 +62,9 @@ export default {
       this.currentPage = page;
     },
   },
+  created(){
+    this.filterProducts();
+  },
   components: {
     productCard,
   },
@@ -60,7 +78,7 @@ export default {
   
     <section class="products">
       <div class="products-filters">
-        <input type="text" class="products-filters-search" placeholder="Search.." />
+        <input v-model="searchData" type="text" class="products-filters-search" placeholder="Search.." @input="filterProducts" />
         <button type="button" class="products-filters-button single" @click="filterSelect('single')" :class="{ 'active': selectedFilter === 'single' }">Single stickers</button>
         <button type="button" class="products-filters-button package" @click="filterSelect('package')" :class="{ 'active': selectedFilter === 'package' }">Package</button>
         <button type="button" class="products-filters-button package" @click="filterSelect('both')" :class="{ 'active': selectedFilter === 'both' }">All</button>
@@ -81,3 +99,4 @@ export default {
 </template>
 <style>
 </style>
+

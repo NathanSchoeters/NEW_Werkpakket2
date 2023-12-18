@@ -271,13 +271,13 @@
             justify-content: center;
             &-price{
                 @include titleLayout(38px);
-                margin-bottom: -10px;
+                padding-bottom: 20px;
             }
             &-text{
                 @include textLayout;
                 margin-bottom: 10px;
             }
-            &-counter{
+            .ProductInfo-right-counter{
                 display: flex;
                 margin-bottom: 5px;
                 .counter-button{
@@ -297,7 +297,7 @@
                     font-weight: bold;
                 }
             }
-            &-button{
+            .ProductInfo-right-button{
                 @include buttonLayout(0px);
                 background-color: $color-dark-blue;
                 width: 120px;
