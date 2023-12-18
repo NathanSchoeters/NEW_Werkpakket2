@@ -101,6 +101,7 @@
         flex-wrap: wrap;
         justify-content: center;
         width: 88vw;
+        margin-bottom: 30px;
         .product-link{
             text-decoration: none;
         }
@@ -111,7 +112,12 @@
     flex-direction: column;
     padding: 100 0 0 0;
     &-filters{
+        margin: 30px;
+        width: 50%;
+        display: flex;
+        justify-content: center;
         &-search{
+            margin: 0 10px;
             height: 30px;
             width: 250px;
             border-radius: 5px;
@@ -120,6 +126,7 @@
         }
         &-button{
             cursor: pointer;
+            margin: 0 10px;
             height: 30px;
             width: 100px;
             border: 2px solid $color-primary;
@@ -130,9 +137,14 @@
                 background-color: $color-primary;
                 color: $color-white;
             }
+            &.active{
+                background-color: $color-primary;
+                color: $color-white;
+            }
         }
     }
     &-pages{
+        margin-bottom: 30px;
         &-button{
             @include buttonLayout;
             width: 30px;
@@ -140,6 +152,10 @@
             background-color: $color-white;
             color: $color-dark-blue;
             &:hover{
+                background-color: $color-primary;
+                color: $color-white;
+            }
+            &.active{
                 background-color: $color-primary;
                 color: $color-white;
             }
