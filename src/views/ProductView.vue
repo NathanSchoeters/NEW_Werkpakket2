@@ -1,5 +1,6 @@
 <script>
 import { useProductsStore } from '@/stores/productsStore.js';
+import { useCartStore } from '@/stores/shoppingCartStore.js';
 
 export default {
     data() {
@@ -8,8 +9,23 @@ export default {
             imageURL: "http://localhost:5173/src/assets/",
         }
     },
-        
-    
+    setup() {
+        const cart = useCartStore();
+
+        const products = useProductsStore().productList;
+
+        const addToCart = (product) => {
+        cart.addToCart(product);
+        };
+
+        return { products, addToCart, cart };
+    },
+
+    methods:{
+    addToCart(){
+        return this.products.addToCart;
+    }
+    },
     computed: {
         product() {
             const productID = this.$route.params.id;

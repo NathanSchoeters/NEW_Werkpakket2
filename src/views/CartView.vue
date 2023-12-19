@@ -32,23 +32,7 @@ export default {
 <template>
 
 
-<div>
-    <!-- Display your products and allow users to add them to the cart -->
-    <div v-for="(product, index) in products" :key="index">
-      {{ product.name }} - {{ product.price }}
-      <button @click="addToCart(product)">Add to Cart</button>
-    </div>
 
-    <!-- Display the shopping cart -->
-    <div>
-      <h2>Shopping Cart</h2>
-      <div v-for="(item, index) in cart.cartItems" :key="index">
-        {{ item.name }} - {{ item.price }}
-        <button @click="removeFromCart(index)">Remove</button>
-      </div>
-      <p>Total: {{ cart.getTotal() }}</p>
-    </div>
-</div>
 
 <div class="shoppingCartWrapper">
     <div class="cartItems">
@@ -71,7 +55,23 @@ export default {
             </div>
         </div>
     </div>
+</div>
+<div>
+    <!-- Display your products and allow users to add them to the cart -->
+    <!-- <div v-for="(product, index) in products" :key="index">
+      {{ product.name }} - {{ product.price }}
+      <button @click="addToCart(product)">Add to Cart</button>
+    </div> -->
 
+    <!-- Display the shopping cart -->
+    <div>
+      <h2>Shopping Cart</h2>
+      <div v-for="(item, index) in cart.cartItems" :key="index">
+        {{ item.name }} - {{ item.price }}
+        <button @click="removeFromCart(index)">Remove</button>
+      </div>
+      <p>Total: {{ cart.getTotal() }}</p>
+    </div>
 </div>
 
 
