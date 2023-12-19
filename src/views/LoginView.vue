@@ -10,12 +10,22 @@ export default {
         };
     },
     computed: {
-        logIn(){
-            return this.authenticater.login(this.mail, this.password);
-        },
-        logOut(){
-            return this.authenticater.logout();
-        },
+
+    async logIn() {
+      await this.authenticater.login(this.mail, this.password);
+      if (this.authenticater.authenticated) {
+        this.$router.push('/cart');
+      }
+    },
+    logOut() {
+      this.authenticater.logout();
+    },
+        // logIn(){
+        //     return this.authenticater.login(this.mail, this.password);
+        // },
+        // logOut(){
+        //     return this.authenticater.logout();
+        // },
     }
 }
 </script>
@@ -37,7 +47,5 @@ export default {
         <div class="login-logout">
             <button class="login-form-button logoutButton" @click="logOut">Log out</button>
         </div>
-        
-
     </section>
 </template>

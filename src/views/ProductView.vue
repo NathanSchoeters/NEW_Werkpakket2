@@ -1,36 +1,46 @@
 <script>
 import { useProductsStore } from '@/stores/productsStore.js';
 import { useCartStore } from '@/stores/shoppingCartStore.js';
+import { useAuthenticationStore } from '../stores/authenticationStore';
 
 export default {
     data() {
         return {
-            product: useProductsStore(),
+            productStore: useProductsStore(),
+            authStore: useAuthenticationStore(),
             imageURL: "http://localhost:5173/src/assets/",
             cart: useCartStore(),
+            quantity: 1,
         }
     },
     methods: {
         addToCart() {
-            alert('Het item is toegevoegd aan de shoppingcart.');
-            if (this.product) {
-                console.log(this.product)
-                const cartItem = {
-                    product: this.product,
-                    quantity: this.quantity,
-                };
-                console.log(cartItem)
-                this.cart.addToCart(cartItem);
-                console.log(this.cart.cartItems);
-            } else {
-                console.error('Product not found.');
+            if(this.authStore.authenticated){
+                alert('Het item is toegevoegd aan de shoppingcart.');
+                if (this.product) {
+                    // console.log(this.product)
+                    const cartItem = {
+                        product: this.product,
+                        quantity: this.quantity,
+                    };
+                    console.log('quantity: ' + this.quantity)
+                    console.log(cartItem)
+                    this.cart.addToCart(cartItem);
+                    // console.log(this.cart.cartItems);
+                } else {
+                    console.error('Product not found.');
+                }
             }
+            else{
+                this.$router.push('/login');
+            }
+            
         },
   },
     computed: {
         product() {
             const productID = this.$route.params.id;
-            return this.product.getProductsById(productID)
+            return this.productStore.getProductsById(productID)
         }
     }
 }

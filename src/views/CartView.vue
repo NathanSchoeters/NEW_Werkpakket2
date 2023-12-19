@@ -5,48 +5,39 @@ import { useProductsStore } from '@/stores/productsStore.js';
 export default {
     data(){
         return{
-          productList: useProductsStore(),
+          productStore: useProductsStore(),
+          cart: useCartStore(),
         };
     },
-    setup() {
-    const cart = useCartStore();
-
-    // const removeFromCart = (index) => {
-    //   cart.removeFromCart(index);
-    // };
-
-    return { cart };
-  },
 }
 </script>
 <template>
 
-
-
-
 <div class="shoppingCartWrapper">
-  <div v-for="(item, index) in cart.cartItems" :key="index">
-      <!-- <ProductItem :product="item" /> -->  
+  <div class="flexContainer">
+    <div v-for="(item, index) in cart.cartItems" :key="index">
       <div class="cartItems">
         <div class="cartItems-left">
-            <img class="cartItems-left-image" src="../assets/Illustration1.png" alt="Product Image">
+            <img class="cartItems-left-image" :src="'src/assets/'+ item.product.image" :alt="item.product.title">
         </div>
         <div class="cartItems-info">
             <div class="cartItems-info-left">
-                <h1 class="cartItems-info-left-title">Dit is de naam van het product</h1>
-                <p class="cartItems-info-left-description">Dit is een uitleg over de sticker</p>
+                <h1 class="cartItems-info-left-title"> {{ item.product.title }}</h1>
+                <p class="cartItems-info-left-description">{{ item.product.description }}</p>
                 <div class="cartItems-info-left-counter">
                     <button class="cartItems-info-left-counter-button" type="button">-</button>
-                    <input class="cartItems-info-left-counter-amount" type="text" placeholder="1">
+                    <input class="cartItems-info-left-counter-amount" type="text" :value="item.quantity">
                     <button class="cartItems-info-left-counter-button" type="button">+</button>
                 </div>
             </div>
             <div class="cartItems-info-right">
-                <h2 class="cartItems-info-right-price">€ 50</h2>   
+                <h2 class="cartItems-info-right-price">€ {{ item.product.price }}</h2>   
                 <button class="cartItems-info-right-button" type="button">Remove from Cart</button>
             </div>
         </div>
     </div>
+  </div>
+  
 
     </div>
     
@@ -59,14 +50,14 @@ export default {
     </div> -->
 
     <!-- Display the shopping cart -->
-    <div>
+    <!-- <div>
       <h2>Shopping Cart</h2>
       <div v-for="(item, index) in cart.cartItems" :key="index">
         {{ item.name }} - {{ item.price }}
         <button @click="removeFromCart(index)">Remove</button>
       </div>
       <p>Total: {{ cart.getTotal() }}</p>
-    </div>
+    </div> -->
 </div>
 
 

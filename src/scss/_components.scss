@@ -4,6 +4,10 @@
     @include buttonLayout();
 }
 
+.flexContainer{
+    display: flex;
+    flex-direction: column;
+}
 
 .card{
     display: flex;

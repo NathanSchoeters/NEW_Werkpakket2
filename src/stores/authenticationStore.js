@@ -1,6 +1,6 @@
 import {defineStore } from "pinia";
 import Accounts from '@/accounts.json';
-import { useRouter } from 'vue-router';
+import { useCartStore } from "./shoppingCartStore";
 
 export const useAuthenticationStore = defineStore('accounts',{
     //state
@@ -8,6 +8,7 @@ export const useAuthenticationStore = defineStore('accounts',{
         accountList: Accounts,
         authenticated: false,
         account: "",
+        cart: useCartStore(),
     }),
     actions: {
         login(mail, password) {
@@ -16,8 +17,6 @@ export const useAuthenticationStore = defineStore('accounts',{
             this.authenticated = true;
             console.log(this.account)
             alert('succesvol ingelogd.');
-            
-            this.$router.go(-1);
           }
           else{
             alert('The user credentials are incorrect.')
@@ -25,6 +24,8 @@ export const useAuthenticationStore = defineStore('accounts',{
         },
         logout() {
             this.authenticated = false;
+            console.log(this.cart.cartItems);
+            this.cart.cartItems.splice(0,cartItems.length);
           },
       },
 })
