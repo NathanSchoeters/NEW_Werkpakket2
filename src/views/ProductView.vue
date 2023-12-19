@@ -12,6 +12,7 @@ export default {
     },
     methods: {
         addToCart() {
+            alert('Het item is toegevoegd aan de shoppingcart.');
             if (this.product) {
                 console.log(this.product)
                 const cartItem = {

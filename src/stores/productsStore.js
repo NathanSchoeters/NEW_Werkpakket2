@@ -16,5 +16,4 @@ export const useProductsStore = defineStore('products',{
             return topProducts.slice(0, 3);
           },
     }
-    //actions
 })
