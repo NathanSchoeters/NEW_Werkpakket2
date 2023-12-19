@@ -7,25 +7,25 @@ export default {
         return {
             product: useProductsStore(),
             imageURL: "http://localhost:5173/src/assets/",
+            cart: useCartStore(),
         }
     },
-    setup() {
-        const cart = useCartStore();
-
-        const products = useProductsStore().productList;
-
-        const addToCart = (product) => {
-        cart.addToCart(product);
-        };
-
-        return { products, addToCart, cart };
-    },
-
-    methods:{
-    addToCart(){
-        return this.products.addToCart;
-    }
-    },
+    methods: {
+        addToCart() {
+            if (this.product) {
+                console.log(this.product)
+                const cartItem = {
+                    product: this.product,
+                    quantity: this.quantity,
+                };
+                console.log(cartItem)
+                this.cart.addToCart(cartItem);
+                console.log(this.cart.cartItems);
+            } else {
+                console.error('Product not found.');
+            }
+        },
+  },
     computed: {
         product() {
             const productID = this.$route.params.id;
@@ -48,10 +48,10 @@ export default {
                     </p>
                     <div class="ProductInfo-right-counter">
                         <button class="counter-button" type="button">-</button>
-                        <input class="counter-input" type="text" placeholder="1">
+                        <input class="counter-input"  v-model="quantity" type="text" placeholder="1">
                         <button class="counter-button" type="button">+</button>
                     </div>
-                    <button class="ProductInfo-right-button" type="button">Add to cart <i class="fa-solid fa-cart-shopping"></i></button>
+                    <button class="ProductInfo-right-button" type="button" @click="addToCart()">Add to cart <i class="fa-solid fa-cart-shopping"></i></button>
                 </div>
             </div>
         </div>

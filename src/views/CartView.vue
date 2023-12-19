@@ -11,21 +11,11 @@ export default {
     setup() {
     const cart = useCartStore();
 
-    const products = [
-      { name: 'Product 1', price: 10 },
-      { name: 'Product 2', price: 20 },
-      // Add more products
-    ];
+    // const removeFromCart = (index) => {
+    //   cart.removeFromCart(index);
+    // };
 
-    const addToCart = (product) => {
-      cart.addToCart(product);
-    };
-
-    const removeFromCart = (index) => {
-      cart.removeFromCart(index);
-    };
-
-    return { products, addToCart, removeFromCart, cart };
+    return { cart };
   },
 }
 </script>
@@ -35,7 +25,9 @@ export default {
 
 
 <div class="shoppingCartWrapper">
-    <div class="cartItems">
+  <div v-for="(item, index) in cart.cartItems" :key="index">
+      <!-- <ProductItem :product="item" /> -->  
+      <div class="cartItems">
         <div class="cartItems-left">
             <img class="cartItems-left-image" src="../assets/Illustration1.png" alt="Product Image">
         </div>
@@ -55,6 +47,9 @@ export default {
             </div>
         </div>
     </div>
+
+    </div>
+    
 </div>
 <div>
     <!-- Display your products and allow users to add them to the cart -->
