@@ -5,7 +5,7 @@
     "description": "This sticker is 5x8 cm.",
     "image": "Illustration1.png",
     "price": 1.50,
-    "btw": 21,
+    "vat_rate": 21,
     "stock_quantity": 420,
     "category": "single"
   },

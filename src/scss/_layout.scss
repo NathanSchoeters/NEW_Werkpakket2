@@ -68,7 +68,7 @@
             .about-info-image{
                 height: 600px;
                 position: absolute;
-                left: 1200px;
+                left: 60%;
                 top: 60px;
             }
         }
@@ -707,9 +707,6 @@
             &-input{
                 width: 90%;
             }   
-            &-newPassword{
-                text-align: center;
-            }
             &-button{
                 width: 90%;
             }

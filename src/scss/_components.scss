@@ -4,6 +4,29 @@
     @include buttonLayout();
 }
 
+.alert{
+    position: fixed;
+    left: 40%;
+    width: 250px;
+    height: 50px;
+    background-color: rgba(0, 255, 0, 0.8);
+    border: 2px solid green;
+    border-radius: 5px;
+    color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include textLayout(green);
+    font-size: 16px;
+}
+
+.error{
+    background-color: rgba(255, 0, 0, 0.9);
+    border: 2px solid red;
+    color: red;
+    @include textLayout(red);
+}
+
 .card{
     display: flex;
     flex-direction: column;
@@ -51,12 +74,6 @@
             width: 100%;
             &-text{
                 @include textLayout;
-            }
-            &-button{
-                @include buttonLayout;
-                background-color: $color-white;
-                color: $color-primary;
-                width: 50px;
             }
         }  
     }

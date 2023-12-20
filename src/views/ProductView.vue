@@ -11,26 +11,38 @@ export default {
             imageURL: "http://localhost:5173/src/assets/",
             cart: useCartStore(),
             quantity: 1,
+            showAlert: false,
+            alertText: "",
+            error: "",
         }
     },
     methods: {
         addToCart() {
             if(this.authStore.authenticated){
-                alert('Het item is toegevoegd aan de shoppingcart.');
                 if (this.product) {
-                    // console.log(this.product)
                     const cartItem = {
                         product: this.product,
-                        quantity: this.quantity,
+                        quantity: parseFloat(this.quantity),
                     };
-                    console.log('quantity: ' + this.quantity)
-                    console.log(cartItem)
                     this.cart.addToCart(cartItem);
-                    // console.log(this.cart.cartItems);
+                   
+                    // alert als item is toegevoegd
+                    this.showAlert = true;
+                    this.alertText = "Items added succesfully!";
+
+                    setTimeout(() => {
+                        this.showAlert = false;
+                    }, 3000);
                 } else {
-                    console.error('Product not found.');
+                    this.error = "error";
+                    this.showAlert = true;
+                    this.alertText = "Product not found";
+
+                    setTimeout(() => {
+                        this.showAlert = false;
+                    }, 3000);
                 }
-            }
+            } 
             else{
                 this.$router.push('/login');
             }
@@ -55,12 +67,9 @@ export default {
         },
         isStillInStock() {
             if(this.product.stock_quantity !== 0){
-                console.log(this.product.stock_quantity);
                 return this.product.stock_quantity > 0;
             }
-            
         },
-        
     }
 }
 </script>
@@ -79,7 +88,7 @@ export default {
                     <div v-if="isStillInStock">
                         <div class="ProductInfo-right-counter">
                         <button class="counter-button" @click="lowerQuantity" type="button">-</button>
-                        <input class="counter-input"  v-model="quantity" type="text" placeholder="1">
+                        <input class="counter-input"  v-model="quantity" type="number" placeholder="1">
                         <button class="counter-button" @click="addquantity" type="button">+</button>
                     </div>
                     <button class="ProductInfo-right-button" type="button" @click="addToCart()">Add to cart <i class="fa-solid fa-cart-shopping"></i></button>
@@ -89,6 +98,10 @@ export default {
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div v-if="showAlert" class="alert" :class="error">
+            <p>{{ alertText }}</p>
         </div>
     </section>
 </template>

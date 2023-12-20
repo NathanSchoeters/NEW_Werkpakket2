@@ -23,7 +23,6 @@ export default {
             </div>
             <div class="card-bottom-info">
                 <p class="card-bottom-info-text">{{product.description}}</p>
-                <button class="card-bottom-info-button" type="button"><i class="fa-solid fa-cart-shopping"></i></button>
             </div>
         </div>
     </div>

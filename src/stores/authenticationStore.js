@@ -16,7 +16,7 @@ export const useAuthenticationStore = defineStore('accounts',{
           if(this.account){
             this.authenticated = true;
             console.log(this.account)
-            alert('succesvol ingelogd.');
+            alert('Log in was succesfull.');
           }
           else{
             alert('The user credentials are incorrect.')
@@ -24,8 +24,7 @@ export const useAuthenticationStore = defineStore('accounts',{
         },
         logout() {
             this.authenticated = false;
-            console.log(this.cart.cartItems);
-            this.cart.cartItems.splice(0,cartItems.length);
+            this.cart.cartItems.splice(0,this.cart.cartItems.length);
           },
     },
 })

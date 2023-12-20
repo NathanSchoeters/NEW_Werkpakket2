@@ -13,7 +13,7 @@
             </ul>
         </nav>
         <div class="navbar-buttons">
-            <router-link to="login"><button type="button" class="navbar-button"><i class="fa-solid fa-user"></i></button></router-link>
+            <router-link to="/login"><button type="button" class="navbar-button"><i class="fa-solid fa-user"></i></button></router-link>
             <router-link to="/cart"><button type="button" class="navbar-button"><i class="fa-solid fa-cart-shopping"></i></button></router-link>
         </div>
     </header>

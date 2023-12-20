@@ -9,8 +9,7 @@ export default {
             password: "",
         };
     },
-    computed: {
-
+    methods: {
     async logIn() {
       await this.authenticater.login(this.mail, this.password);
       if (this.authenticater.authenticated) {
@@ -33,7 +32,6 @@ export default {
             <input v-model="mail" class="login-form-input" type="text" name="email">
             <label class="login-form-label" for="password">Password</label>
             <input v-model="password" class="login-form-input" type="text" name="password">
-            <a class="login-form-newPassword" href="#">Change password</a>
             <button class="login-form-button" @click="logIn" type="button">Log in</button>
         </div>
     </section>

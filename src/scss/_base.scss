@@ -47,3 +47,9 @@ $font-Young-Serif: 'Young Serif', sans-serif;
         transition: 0.5s;
     }
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
