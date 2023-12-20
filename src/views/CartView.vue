@@ -20,13 +20,12 @@ export default {
       }, 3000);
       this.cart.removeFromCart(index);      
     },
-    addquantity(){
-        // this.quantity +=1;
+    addquantity(index){
+        this.cart.cartItems[index].quantity += 1;
     },   
-    lowerQuantity(){
-      if(this.quantity >  1){
-      console.log(this.quantity)
-      this.quantity -= 1;
+    lowerQuantity(index){
+      if(this.cart.cartItems[index].quantity >  1){
+        this.cart.cartItems[index].quantity -= 1;
       }
       else{
           alert("1 is the lowest amount.");
@@ -58,9 +57,9 @@ export default {
                     <h1 class="cartItems-info-left-title"> {{ item.product.title }}</h1>
                     <p class="cartItems-info-left-description">{{ item.product.description }}</p>
                     <div class="cartItems-info-left-counter">
-                        <button class="cartItems-info-left-counter-button" @click="lowerQuantity" type="button">-</button>
+                        <button class="cartItems-info-left-counter-button" @click="lowerQuantity(index)" type="button">-</button>
                         <input class="cartItems-info-left-counter-amount" type="number" :value="item.quantity">
-                        <button class="cartItems-info-left-counter-button" @click="addquantity" type="button">+</button>
+                        <button class="cartItems-info-left-counter-button" @click="addquantity(index)" type="button">+</button>
                     </div>
                 </div>
                 <div class="cartItems-info-right">

@@ -389,6 +389,9 @@
                         color: $color-white;
                         font-weight: bold;
                     }
+                    &-button:hover{
+                        cursor: pointer;
+                    }
                 }
             }
             &-right{
