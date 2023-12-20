@@ -12,6 +12,23 @@ export default {
     removeFromCart(index) {
       this.cart.removeFromCart(index);      
     },
+    addquantity(){
+        // this.quantity +=1;
+    },   
+    lowerQuantity(){
+      if(this.quantity >  1){
+      console.log(this.quantity)
+      this.quantity -= 1;
+      }
+      else{
+          alert("1 is the lowest amount.");
+      }
+    },
+    checkout(){
+      console.log("test")
+      this.$router.push('/checkout');
+    }
+      
   },
   computed: {
     calculateSubTotal() {
@@ -67,9 +84,9 @@ export default {
                   <h1 class="cartItems-info-left-title"> {{ item.product.title }}</h1>
                   <p class="cartItems-info-left-description">{{ item.product.description }}</p>
                   <div class="cartItems-info-left-counter">
-                      <button class="cartItems-info-left-counter-button" type="button">-</button>
+                      <button class="cartItems-info-left-counter-button" @click="lowerQuantity" type="button">-</button>
                       <input class="cartItems-info-left-counter-amount" type="text" :value="item.quantity">
-                      <button class="cartItems-info-left-counter-button" type="button">+</button>
+                      <button class="cartItems-info-left-counter-button" @click="addquantity" type="button">+</button>
                   </div>
               </div>
               <div class="cartItems-info-right">
@@ -95,7 +112,7 @@ export default {
             <h1 class="totals-total">€{{ calculateTotal }}</h1>
           </div>
         </div>
-        <button class="cartItems-info-right-button">Checkout</button>
+        <button class="cartItems-info-right-button" @click="checkout">Checkout</button>
       </div>
     </div>
   </div>

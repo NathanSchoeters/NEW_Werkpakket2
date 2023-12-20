@@ -20,12 +20,6 @@ export default {
     logOut() {
       this.authenticater.logout();
     },
-        // logIn(){
-        //     return this.authenticater.login(this.mail, this.password);
-        // },
-        // logOut(){
-        //     return this.authenticater.logout();
-        // },
     }
 }
 </script>

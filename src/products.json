@@ -16,7 +16,7 @@
     "image": "Illustration2.png",
     "price": 0.50,
     "vat_rate": 21,
-    "stock_quantity": 75,
+    "stock_quantity": 0,
     "category": "single"
   },
   {

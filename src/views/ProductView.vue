@@ -34,14 +34,33 @@ export default {
             else{
                 this.$router.push('/login');
             }
-            
         },
-  },
+        addquantity(){
+        this.quantity +=1;
+        },   
+        lowerQuantity(){
+            if(this.quantity >  1){
+            console.log(this.quantity)
+            this.quantity -= 1;
+            }
+            else{
+                alert("1 is the lowest amount.");
+            }
+        }
+    },
     computed: {
         product() {
             const productID = this.$route.params.id;
             return this.productStore.getProductsById(productID)
-        }
+        },
+        isStillInStock() {
+            if(this.product.stock_quantity !== 0){
+                console.log(this.product.stock_quantity);
+                return this.product.stock_quantity > 0;
+            }
+            
+        },
+        
     }
 }
 </script>
@@ -57,12 +76,17 @@ export default {
                     <h1 class="productInfo-right-price">€ {{product.price}}</h1>
                     <p class="productInfo-right-text">{{product.description}}
                     </p>
-                    <div class="ProductInfo-right-counter">
-                        <button class="counter-button" type="button">-</button>
+                    <div v-if="isStillInStock">
+                        <div class="ProductInfo-right-counter">
+                        <button class="counter-button" @click="lowerQuantity" type="button">-</button>
                         <input class="counter-input"  v-model="quantity" type="text" placeholder="1">
-                        <button class="counter-button" type="button">+</button>
+                        <button class="counter-button" @click="addquantity" type="button">+</button>
                     </div>
                     <button class="ProductInfo-right-button" type="button" @click="addToCart()">Add to cart <i class="fa-solid fa-cart-shopping"></i></button>
+                    </div>
+                    <div v-else>
+                        <h1 class="noStock">this item is no longer in stock.</h1>
+                    </div>
                 </div>
             </div>
         </div>

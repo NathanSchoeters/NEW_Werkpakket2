@@ -27,5 +27,5 @@ export const useAuthenticationStore = defineStore('accounts',{
             console.log(this.cart.cartItems);
             this.cart.cartItems.splice(0,cartItems.length);
           },
-      },
+    },
 })
