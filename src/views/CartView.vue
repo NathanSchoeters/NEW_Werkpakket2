@@ -25,7 +25,6 @@ export default {
       }
     },
     checkout(){
-      console.log("test")
       this.$router.push('/checkout');
     }
       
@@ -61,7 +60,6 @@ export default {
       total = total.toFixed(2);
       return total;
     }
-    
   }
 }
 </script>
@@ -120,7 +118,4 @@ export default {
 </div>
 <div>
 </div>
-
-
-
 </template>

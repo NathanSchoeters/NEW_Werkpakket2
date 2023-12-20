@@ -5,6 +5,7 @@ import LoginView from '@/views/LoginView.vue'
 import ShopView from '@/views/ShopView.vue'
 import ProductView from '@/views/ProductView.vue'
 import CheckoutView from '@/views/CheckoutView.vue'
+import ConfirmationView from '@/views/ConfirmationView.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -17,6 +18,7 @@ const router = createRouter({
         {path: '/shop', component: ShopView},
         {path: '/product/:id', name: 'product', component: ProductView},
         {path: '/checkout', component: CheckoutView},
+        {path: '/confirmation', component: ConfirmationView}
 
     ]
 })

@@ -362,15 +362,16 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                justify-content: space-between;
-
                 &-title{
                     @include titleLayout(24px,$color-black);
+                    margin: 0 0 5px 0;
                 }
                 &-description{
                     @include textLayout($color-black);
+                    margin: 5px 0;
                 }
                 &-counter{
+                    margin: 10px 0;
                     display: flex;
                     &-button{
                         height: 25px;
@@ -401,6 +402,132 @@
                 &-button{
                     @include buttonLayout(0px);
                     width: 120px;
+                }
+            }
+        }
+    }
+}
+
+
+
+.checkoutContainer{
+    width: 100%;
+    height: fit-content;
+    min-height: 450px;
+    @include flexLayout();
+    .checkoutWrapper{
+        align-items: center;
+        display: flex;
+        .checkoutLeft{
+            .formText{
+                @include textLayout($color-dark-blue);
+                font-size: 16px;
+                padding: 0 5px 0 0;
+            }
+            .formInput{
+                border-radius: 5px;
+                border: 2px solid $color-primary;
+                height: 25px;
+            }
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            &-checkbox{
+                &-label{
+                    @include textLayout($color-black);
+                    font-size: 14px;
+                    padding: 0 10px;
+                }
+            }
+            &-form{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                margin: 5px 0;
+                &-horizontal{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 100%;
+                    &-small{
+                        display: flex;
+                        flex-direction: column;
+                        width: 45%;                 
+                    }
+                }
+                &-input{
+                    display: flex;
+                    flex-direction: column;
+                    padding: 5px 0;
+                    
+                }
+            }
+            &-buttons{
+                display: flex;
+                flex-direction: column;
+                &-title{
+                    @include titleLayout(20px, $color-dark-blue);
+                    padding: 5px 0;
+                }
+                &-button{
+                    margin: 5px 0;
+                    display: flex;
+                    flex-direction: row;
+                    &-radio{
+                        margin: 0 5px 0 0;
+                    }
+                }
+            }
+        }
+        .checkoutRight{
+            padding: 0 10px;
+            .checkoutCartItems{
+                border: 2px solid $color-dark-blue;
+                border-radius: 5px;
+                padding: 5px;
+                height: 100px;
+                display: flex;
+                margin: 20px;
+                &-left{
+                    width: 200px;
+                    display: flex;
+                    justify-content: center;
+                    &-image{
+                        width: 40%;
+                    }
+                }
+                &-info{
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;        
+                    &-left{
+                        width: 70%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        &-title{
+                            @include titleLayout(24px,$color-black);
+                            padding-bottom: 5px;
+                        }
+                        &-description{
+                            @include textLayout($color-black);
+                            font-size: 14px;
+                        }
+                    }
+                    &-right{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        &-price{
+                            @include titleLayout(24px, $color-black);
+                            text-align: right
+                        }
+                        &-button{
+                            @include buttonLayout(0px);
+                            width: 120px;
+                        }
+                    }
                 }
             }
         }
