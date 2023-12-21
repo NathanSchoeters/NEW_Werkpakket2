@@ -8,7 +8,7 @@ export default {
       products: useProductsStore(),
       selectedFilter: "both",
       currentPage: 1,
-      itemsPerPage: 6, // Set the number of items per page
+      itemsPerPage: 8, 
       filteredProducts: [],
       searchData: "",
     };

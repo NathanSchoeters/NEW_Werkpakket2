@@ -19,32 +19,24 @@ export default {
       };
   },
   computed:{
-    checked(){
+    checkboxChecked(){
         return this.billingDetailsSelected;
     },
     confirmation(){
         this.$router.push('/confirmation');
     },
   },
-  watch: {
-    checked(newVal) {
-    if (newVal && this.loginStore.authenticated) {
+  created() {
+    // Populate form fields with user data when the component is created
+    if (this.loginStore.authenticated) {
       const authenticatedUser = this.loginStore.accountList.find(account => account.email === this.loginStore.account.email);
-      console.log(authenticatedUser);
       if (authenticatedUser) {
         this.userData.name = authenticatedUser.name || '';
         this.userData.street = authenticatedUser.street || '';
         this.userData.number = authenticatedUser.number || '';
         this.userData.city = authenticatedUser.city || '';
-        } 
-        else {
-        this.clearUserData();
       }
-
-    } else {
-      this.clearUserData();
     }
-    },
   },
   methods: {
     clearUserData() {
@@ -65,10 +57,14 @@ export default {
                 <input v-model="billingDetailsSelected" type="checkbox" id="billingDetails" name="billing"/>
                 <label class="checkoutLeft-checkbox-label" for="billingDetails">Do you want the billing details to differ from the address details?</label>
             </div>
-            <div v-if="checked" class="checkoutLeft-form">
+            <div class="checkoutLeft-form">
                 <div class="checkoutLeft-form-input">
                     <label class="formText" for="name">full name</label>
                     <input v-model="userData.name" class="formInput" type="text" name="name" id="name">
+                </div>
+                <div v-if="checkboxChecked" class="checkoutLeft-form-input">
+                    <label class="formText" for="billingAdress">Billing adress</label>
+                    <input class="formInput" type="text" name="billingAdress" id="billingAdress">
                 </div>
                 <div class="checkoutLeft-form-input">
                     <label class="formText" for="street">street</label>
