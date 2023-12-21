@@ -1,14 +1,26 @@
 [
   {
     "email": "test@test",
-    "password": "test"
+    "password": "test",
+    "name": "test user",
+    "street": "tryout street",
+    "number": "101",
+    "city": "Hasselt"
   },
   {
     "email": "nathan@gmail.com",
-    "password": "nathan"
+    "password": "nathan",
+    "name": "Nathan Schoeters",
+    "street": "Hamsebaan",
+    "number": "11",
+    "city": "Ham"
   },
   {
     "email": "robin@gmail.com",
-    "password": "robin"
+    "password": "robin",
+    "name": "Robin Braibant",
+    "street": "PXLLaan",
+    "number": "245",
+    "city": "Hasselt"
   }
 ]

@@ -1,12 +1,21 @@
 <script>
 import { useCartStore } from '@/stores/shoppingCartStore.js';
 import { useProductsStore } from '@/stores/productsStore.js';
+import {useAuthenticationStore} from '@/stores/authenticationStore.js';
+
 export default {
   data(){
       return{
         productStore: useProductsStore(),
         cart: useCartStore(),
         billingDetailsSelected: false,
+        loginStore: useAuthenticationStore(),
+        userData: {
+            name: '',
+            street: '',
+            number: '',
+            city: '',
+        },
       };
   },
   computed:{
@@ -16,7 +25,40 @@ export default {
     confirmation(){
         this.$router.push('/confirmation');
     },
-  }
+  },
+  watch: {
+    checked(newVal) {
+    // If billingDetailsSelected is checked, populate form fields with user data
+    if (newVal && this.loginStore.authenticated) {
+      const authenticatedUser = this.loginStore.accountList.find(account => account.email === this.loginStore.account.email);
+      console.log(authenticatedUser);
+      if (authenticatedUser) {
+        console.log(this.userData.Name);
+        this.userData.name = authenticatedUser.name || '';
+        this.userData.street = authenticatedUser.street || '';
+        this.userData.number = authenticatedUser.number || '';
+        this.userData.city = authenticatedUser.city || '';
+        } 
+        else {
+        // Clear form fields if billingDetailsSelected is not checked or user data is not available
+        this.clearUserData();
+      }
+
+    } else {
+      // Clear form fields if billingDetailsSelected is not checked or user is not authenticated
+      this.clearUserData();
+    }
+    },
+  },
+  methods: {
+    clearUserData() {
+      // Clear user data in form fields
+      this.userData.name = '';
+      this.userData.street = '';
+      this.userData.number = '';
+      this.userData.city = '';
+    },
+  },
 }
 </script>
 <template>
@@ -30,20 +72,20 @@ export default {
             <div v-if="checked" class="checkoutLeft-form">
                 <div class="checkoutLeft-form-input">
                     <label class="formText" for="name">full name</label>
-                    <input class="formInput" type="text" name="name" id="name">
+                    <input v-model="userData.name" class="formInput" type="text" name="name" id="name">
                 </div>
                 <div class="checkoutLeft-form-input">
                     <label class="formText" for="street">street</label>
-                    <input class="formInput" type="text" name="street" id="street">
+                    <input v-model="userData.street" class="formInput" type="text" name="street" id="street">
                 </div>
                 <div class="checkoutLeft-form-horizontal">
                     <div class="checkoutLeft-form-horizontal-small">
                     <label class="formText" for="number">house number</label>
-                    <input class="formInput" type="text" name="number" id="number">
+                    <input v-model="userData.number" class="formInput" type="text" name="number" id="number">
                     </div>
                     <div class="checkoutLeft-form-horizontal-small">
                     <label class="formText" for="city">city</label>
-                    <input class="formInput" type="text" name="city" id="city">
+                    <input v-model="userData.city" class="formInput" type="text" name="city" id="city">
                     </div>
                 </div>
                 <div class="checkoutLeft-buttons">
