@@ -777,4 +777,67 @@
             }
         }
     }
+
+    // NEW PART
+
+    .shoppingCartWrapper{
+        .flexContainer{
+            width: 100%;
+        }
+        .cartItems{
+            border: 3px solid $color-dark-blue;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 10px 0 !important;
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            &-left{
+                width: 100px;
+                height: 100px;
+            }
+        }
+    }
+    .checkoutContainer{
+        margin: 10px 0;
+        .checkoutWrapper{
+            flex-direction: column;
+            width: 100%;
+            .checkoutLeft{
+                padding: 15px;
+            }
+        }
+    }
+    .emptyCart{
+        @include textLayout($color-black);
+        padding-bottom: 400px;
+        font-size: 16px;
+    }
+    .totals{
+        width: 95%;
+        margin:0;
+        .titles{
+            margin:0;
+        }
+    }
+    .succesPurchase{
+        text-align: center;
+    }
+
+    .products-filters{
+        width: 100%;
+        border: 1px solid red;  
+        margin: 0;
+        padding: 0;
+        &-search{
+            width: 100px;
+            height: 35px;
+        }
+        &-button{
+            width: 100px;
+            height: auto;
+        }
+    }
 }

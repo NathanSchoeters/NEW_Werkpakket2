@@ -32,7 +32,7 @@ export default {
 </script>
 <template>
     <div class="shoppingCartWrapper">
-  <div class="flexContainer">
+  <div class="flexContainer succesPurchase">
     <h1 class="gallery-title">Purchase succesful!</h1>
     <div v-if="cart.cartItems.length ===0" class="emptyCart">
       <p>Je winkelmand is leeg!</p>
