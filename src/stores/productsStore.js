@@ -15,5 +15,14 @@ export const useProductsStore = defineStore('products',{
             const topProducts = [...this.productList].sort((a, b) => b.stock_quantity - a.stock_quantity);
             return topProducts.slice(0, 3);
           },
+    },
+    //actions
+    actions: {
+        changeStock(productID, quantity){
+            const product = this.getProductsById(productID);
+            if (product){
+                product.stock_quantity += quantity;
+            }
+        }
     }
 })

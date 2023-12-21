@@ -28,24 +28,20 @@ export default {
   },
   watch: {
     checked(newVal) {
-    // If billingDetailsSelected is checked, populate form fields with user data
     if (newVal && this.loginStore.authenticated) {
       const authenticatedUser = this.loginStore.accountList.find(account => account.email === this.loginStore.account.email);
       console.log(authenticatedUser);
       if (authenticatedUser) {
-        console.log(this.userData.Name);
         this.userData.name = authenticatedUser.name || '';
         this.userData.street = authenticatedUser.street || '';
         this.userData.number = authenticatedUser.number || '';
         this.userData.city = authenticatedUser.city || '';
         } 
         else {
-        // Clear form fields if billingDetailsSelected is not checked or user data is not available
         this.clearUserData();
       }
 
     } else {
-      // Clear form fields if billingDetailsSelected is not checked or user is not authenticated
       this.clearUserData();
     }
     },

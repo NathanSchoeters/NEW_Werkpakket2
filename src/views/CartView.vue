@@ -8,12 +8,17 @@ export default {
         cart: useCartStore(),
         showAlert: false,
         alertText: "",
+        showAlert: false,
+        alertText: "",
+        error: "",
       };
   },
   methods: {
     removeFromCart(index) {
       this.showAlert = true;
       this.alertText = "Item removed succesfully!";
+      const productId = this.cart.cartItems[index].product.id;
+      this.productStore.changeStock(productId, -this.cart.cartItems[index].quantity);
 
       setTimeout(() => {
           this.showAlert = false;
@@ -21,11 +26,29 @@ export default {
       this.cart.removeFromCart(index);      
     },
     addquantity(index){
+      if(this.cart.cartItems[index].product.stock_quantity >= 0){
+        console.log(this.cart.cartItems[index].product.stock_quantity)
         this.cart.cartItems[index].quantity += 1;
+        const productId = this.cart.cartItems[index].product.id;
+        this.productStore.changeStock(productId, -1);
+      }
+      else{
+        this.error = "error";
+        this.showAlert = true;
+        this.alertText = "We don't have enough stock.";
+
+        setTimeout(() => {
+            this.showAlert = false;
+            this.error = "";
+        }, 3000);
+      }
+        
     },   
     lowerQuantity(index){
       if(this.cart.cartItems[index].quantity >  1){
         this.cart.cartItems[index].quantity -= 1;
+        const productId = this.cart.cartItems[index].product.id;
+        this.productStore.changeStock(productId, +1);
       }
       else{
           alert("1 is the lowest amount.");

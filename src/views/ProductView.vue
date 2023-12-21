@@ -14,25 +14,39 @@ export default {
             showAlert: false,
             alertText: "",
             error: "",
+            outOfStock: false,
         }
     },
     methods: {
         addToCart() {
             if(this.authStore.authenticated){
                 if (this.product) {
-                    const cartItem = {
+                    if(this.quantity <= this.product.stock_quantity){
+                        const cartItem = {
                         product: this.product,
                         quantity: parseFloat(this.quantity),
-                    };
-                    this.cart.addToCart(cartItem);
-                   
-                    // alert als item is toegevoegd
-                    this.showAlert = true;
-                    this.alertText = "Items added succesfully!";
+                        };
+                        this.cart.addToCart(cartItem);
+                        this.productStore.changeStock(this.product.id, this.quantity);
+                        
+                        // alert als item is toegevoegd
+                        this.showAlert = true;
+                        this.alertText = "Items added succesfully!";
 
-                    setTimeout(() => {
-                        this.showAlert = false;
-                    }, 3000);
+                        setTimeout(() => {
+                            this.showAlert = false;
+                        }, 3000);
+                    }
+                    else{
+                        this.error = "error";
+                        this.showAlert = true;
+                        this.alertText = "We don't have enough stock.";
+
+                        setTimeout(() => {
+                            this.showAlert = false;
+                            this.error = "";
+                        }, 3000);
+                    }
                 } else {
                     this.error = "error";
                     this.showAlert = true;
@@ -40,6 +54,7 @@ export default {
 
                     setTimeout(() => {
                         this.showAlert = false;
+                        this.error = "";
                     }, 3000);
                 }
             } 
@@ -48,12 +63,16 @@ export default {
             }
         },
         addquantity(){
-        this.quantity +=1;
+            this.quantity +=1;
+            this.productStore.changeStock(this.product.id, -1);
+            if(this.product.stock_quantity === 0){
+                this.addToCart();
+            }
         },   
         lowerQuantity(){
             if(this.quantity >  1){
-            console.log(this.quantity)
             this.quantity -= 1;
+            this.productStore.changeStock(this.product.id, 1);
             }
             else{
                 alert("1 is the lowest amount.");
